@@ -62,7 +62,7 @@ const postProcLastFm = (song) => {
   const album = song.album['#text'];
   const albumImageUrl = song.image[3]['#text'];
   const songUrl = song.url;
-  const device = 'Michael\'s Airpods Pro';
+  const device = 'Michael\'s AirPods Pro';
 
   return {
     album,
