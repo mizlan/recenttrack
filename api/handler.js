@@ -105,7 +105,7 @@ const recentTrack = async () => {
 export default async function handler(req, resp) {
   const track = await getInfo();
   console.log(track);
-  resp.setHeader('Access-Control-Allow-Origin', '*');
+  resp.setHeader('Access-Control-Allow-Origin', 'https://mzchael.com');
 
   /*
    * Don't configure cache control here, manage it in frontend
