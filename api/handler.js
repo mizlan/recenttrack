@@ -34,7 +34,9 @@ const postProcSpotify = (song) => {
   const title = song.item.name;
   const artist = song.item.artists.map((_artist) => _artist.name).join(', ');
   const album = song.item.album.name;
-  const albumImageUrl = song.item.album.images[0].url;
+  /* Currently not using this field, and it seems like
+     local files do not have album art, so disabling for now */
+  // const albumImageUrl = song.item.album.images[0].url;
   const songUrl = song.item.external_urls.spotify;
   let device;
 
@@ -46,7 +48,7 @@ const postProcSpotify = (song) => {
 
   return {
     album,
-    albumImageUrl,
+    // albumImageUrl,
     artist,
     device,
     isPlaying,
@@ -104,8 +106,8 @@ const recentTrack = async () => {
 
 export default async function handler(req, resp) {
   const track = await getInfo();
-  console.log(track);
   resp.setHeader('Access-Control-Allow-Origin', 'https://mzchael.com');
+  // resp.setHeader('Access-Control-Allow-Origin', '*');
 
   /*
    * Don't configure cache control here, manage it in frontend
